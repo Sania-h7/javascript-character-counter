@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>JavaScript Word Counter</title>
+
+    //css code start here
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(99, 163, 202);
+}
+.main form textarea{
+    font-size: large;
+    background-color: rgb(14, 111, 175);
+    color: black;
+    height: 200px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 2, 0.459);
+    outline: none;
+    border: none;
+    padding: 10px;
+    resize: none;
+    font-family: verdana, sans-serif;
+    line-height: 1.4;
+    box-decoration-break: slice;
+}
+
+  ::-webkit-input-placeholder{
+     color:rgb(240, 158, 8);
+ } 
+ :-ms-input-placeholder{
+     color:rgb(224, 122, 4);
+ }
+ 
+.main #counts{
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(184, 100, 4) ;
+    font-style: oblique; 
+    font-weight: 900; 
+   border-style: groove;
+   text-align: center;
+   width: 20rem;
+   height: 3rem;
+   border-color: rgb(14, 111, 175);
+   }
+ </style>
+ 
+//css code end
+
+</head>
+
+<body>
+    <div class="main">
+        <form >
+            <textarea  placeholder="write your masseage here..." id="input" oninput="counter()"></textarea>
+        </form>
+        <div id="counts"> Characters:    <span id="characters">0</span></div>
+        <div id="counts"> Words: <span id="word">0</span></div>
+    </div>
+
+
+    //js code start here
+    <script>
+        const input = document.getElementById('input');      //access the textarea acharacter and word counter by DOM element
+const characters = document.getElementById('characters');
+const word = document.getElementById('word');
+
+function counter() {
+    let char = input.value;
+    debugger
+    let chartrim = char.replace(/\s/g, '');   //to avoid count white space
+    let chartrimmed = chartrim.length;
+    characters.innerHTML = chartrimmed;
+debugger
+    var words = input.value.split(' ').filter((word) => {
+        return word != '';
+    });
+     word.innerHTML = words.length;
+}
+
+    </script>
+//js code end here
+
+</body>
+
+</html>
